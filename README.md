@@ -1,4 +1,4 @@
-Author: Min Kim <MinS.Kim@UTSouthwestern.edu> and Spencer Barnes <Spencer.Barnes@UTSouthwestern.edu>
+Author: Spencer Barnes <Spencer.Barnes@UTSouthwestern.edu>
 Date: April 20, 2017    
 Description: Shiny app for analyzing TCGA data for frequently asked requests through the Help-Desk.    
 
