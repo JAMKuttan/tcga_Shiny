@@ -83,6 +83,10 @@ workflow_parameters: []
 # Name of the R module that the vizapp will run against
 vizapp_r_module: 'R/3.2.1-intel'
 
+# # List of any Bioconductor packages, not provided by the modules, that must be made
+# available to the vizapp
+vizapp_bioc_packages: []
+
 # List of any CRAN packages, not provided by the modules, that must be made
 # available to the vizapp
 vizapp_cran_packages:
