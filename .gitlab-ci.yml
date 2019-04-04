@@ -1,6 +1,8 @@
 before_script:
+  - module load astrocyte
   - module load python/3.6.1-2-anaconda
   - module load nextflow/0.31.1_Ignite
+
 
 stages:
   - astrocyte
