@@ -8,7 +8,7 @@ params.run = "TRUE"
 
 process copy {
 
-  publishDir "$baseDir/output", mode: 'copy'
+  publishDir "$baseDir/../", mode: 'copy'
 
   input:
 
@@ -16,8 +16,8 @@ process copy {
 
   output:
 
-  file("**/Clinical/**") into outPathClinical
-  file("**/Expression/**") into outPathExpression
+  file("Clinical/**") into outPathClinical
+  file("Expression/**") into outPathExpression
 
   script:
 
