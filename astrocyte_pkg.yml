@@ -90,8 +90,9 @@ vizapp_bioc_packages: []
 # List of any CRAN packages, not provided by the modules, that must be made
 # available to the vizapp
 vizapp_cran_packages:
-  - shiny
+  - lazyeval
   - ggplot2
+  - shiny
   - shinyjs
   - survival
   - survminer
