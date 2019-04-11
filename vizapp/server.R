@@ -44,7 +44,6 @@ get.filt<-function(var){
 shinyServer(
   function(input,output,session){
     
-    data.dir <- Sys.getenv('outputDir')
     vars<-eventReactive(input$go,{
       get.filt(input)
     })
