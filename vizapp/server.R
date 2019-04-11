@@ -68,11 +68,11 @@ shinyServer(
               if(!file.exists(paste0(data.dir,"Expression/out_genes/",gene,"/",i,".txt"))){
                 cat("File not present\n")
                 if(!dir.exists(paste0(data.dir,"Expression/out_genes/",gene))){
-                  system(paste0("mkdir ../output/Expression/out_genes/",gene))
+                  system(paste0("mkdir ",data.dir,"Expression/out_genes/",gene))
                   cat("Made directory\n")
                 }
-                system(paste0("ls ../output/Expression/*",i,"*txt | while read line ; do fname=$(basename $line); head -1 $line > ../output/Expression/out_genes/",
-                              gene,"/","$fname; grep -wi ",gene," $line >> ../output/Expression/out_genes/",gene,"/","$fname;done"))
+                system(paste0("ls ",data.dir,"Expression/*",i,"*txt | while read line ; do fname=$(basename $line); head -1 $line > ",data.dir,"Expression/out_genes/",
+                              gene,"/","$fname; grep -wi ",gene," $line >> ",data.dir,"Expression/out_genes/",gene,"/","$fname;done"))
                 cat("creating data\n")
                 
               }
@@ -129,11 +129,11 @@ shinyServer(
             if(!file.exists(paste0(data.dir,"Expression/out_genes/",gene,"/",cancer,".txt"))){
               cat("File not present\n")
               if(!dir.exists(paste0(data.dir,"Expression/out_genes/",gene))){
-                system(paste0("mkdir ../output/Expression/out_genes/",gene))
+                system(paste0("mkdir ",data.dir,"Expression/out_genes/",gene))
                 cat("Made directory\n")
               }
-              system(paste0("ls ../output/Expression/*",cancer,"*txt | while read line ; do fname=$(basename $line); head -1 $line > ../output/Expression/out_genes/",
-                            gene,"/","$fname; grep -wi ",gene," $line >> ../output/Expression/out_genes/",gene,"/","$fname;done"))
+              system(paste0("ls ",data.dir,"Expression/*",cancer,"*txt | while read line ; do fname=$(basename $line); head -1 $line > ",data.dir,"Expression/out_genes/",
+                            gene,"/","$fname; grep -wi ",gene," $line >> ",data.dir,"Expression/out_genes/",gene,"/","$fname;done"))
               cat("creating data\n")
               
             }
@@ -295,11 +295,11 @@ shinyServer(
             if(!file.exists(paste0(data.dir,"Expression/out_genes/",gene,"/",i,".txt"))){
               cat("File not present\n")
               if(!dir.exists(paste0(data.dir,"Expression/out_genes/",gene))){
-                system(paste0("mkdir ../output/Expression/out_genes/",gene))
+                system(paste0("mkdir ",data.dir,"Expression/out_genes/",gene))
                 cat("Made directory\n")
               }
-              system(paste0("ls ../output/Expression/*",i,"*txt | while read line ; do fname=$(basename $line); head -1 $line > ../output/Expression/out_genes/",
-                            gene,"/","$fname; grep -wi ",gene," $line >> ../output/Expression/out_genes/",gene,"/","$fname;done"))
+              system(paste0("ls ",data.dir,"Expression/*",i,"*txt | while read line ; do fname=$(basename $line); head -1 $line > ",data.dir,"Expression/out_genes/",
+                            gene,"/","$fname; grep -wi ",gene," $line >> ",data.dir,"Expression/out_genes/",gene,"/","$fname;done"))
               cat("creating data\n")
               
             }
@@ -356,11 +356,11 @@ shinyServer(
           if(!file.exists(paste0(data.dir,"Expression/out_genes/",gene,"/",cancer,".txt"))){
             cat("File not present\n")
             if(!dir.exists(paste0(data.dir,"Expression/out_genes/",gene))){
-              system(paste0("mkdir ../output/Expression/out_genes/",gene))
+              system(paste0("mkdir ",data.dir,"Expression/out_genes/",gene))
               cat("Made directory\n")
             }
-            system(paste0("ls ../output/Expression/*",cancer,"*txt | while read line ; do fname=$(basename $line); head -1 $line > ../output/Expression/out_genes/",
-                          gene,"/","$fname; grep -wi ",gene," $line >> ../output/Expression/out_genes/",gene,"/","$fname;done"))
+            system(paste0("ls ",data.dir,"Expression/*",cancer,"*txt | while read line ; do fname=$(basename $line); head -1 $line > ",data.dir,"Expression/out_genes/",
+                          gene,"/","$fname; grep -wi ",gene," $line >> ",data.dir,"Expression/out_genes/",gene,"/","$fname;done"))
             cat("creating data\n")
             
           }
