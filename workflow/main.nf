@@ -8,7 +8,7 @@ params.run = "TRUE"
 
 process copy {
 
-  publishDir "$baseDir/../output/", mode: 'copy'
+  publishDir "$baseDir/output/", mode: 'copy'
 
   input:
 
