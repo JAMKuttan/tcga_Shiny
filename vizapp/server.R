@@ -44,6 +44,7 @@ get.filt<-function(var){
 shinyServer(
   function(input,output,session){
     
+    data.dir <- Sys.getenv('outputDir')
     vars<-eventReactive(input$go,{
       get.filt(input)
     })
@@ -64,9 +65,9 @@ shinyServer(
             n = length(cancer.list) + 1
             for(i in cancer.list){
               incProgress(1/n, detail = paste0("collating data ", count, " of ", length(cancer.list)))
-              if(!file.exists(paste0("../output/Expression/out_genes/",gene,"/",i,".txt"))){
+              if(!file.exists(paste0(data.dir,"Expression/out_genes/",gene,"/",i,".txt"))){
                 cat("File not present\n")
-                if(!dir.exists(paste0("../output/Expression/out_genes/",gene))){
+                if(!dir.exists(paste0(data.dir,"Expression/out_genes/",gene))){
                   system(paste0("mkdir ../output/Expression/out_genes/",gene))
                   cat("Made directory\n")
                 }
@@ -75,7 +76,7 @@ shinyServer(
                 cat("creating data\n")
                 
               }
-              temp <- as.data.frame(t(read.table(paste("../output/Expression/out_genes/",gene,"/",i,".txt",sep=""),header=T,sep="\t",row.names=1)))
+              temp <- as.data.frame(t(read.table(paste(data.dir,"Expression/out_genes/",gene,"/",i,".txt",sep=""),header=T,sep="\t",row.names=1)))
               temp$type <- as.factor(ifelse(grepl("11",row.names(temp)),"Normal","Tumor"))
               temp$cancer <- rep(i,nrow(temp))
               if(ncol(temp)<3 | length(unique(temp$type))<2){
@@ -125,9 +126,9 @@ shinyServer(
             incProgress(1/n, detail = "Getting expression data")
             #Import Expression and Clinical Data
             cat(paste0("going to read expression ",cancer,"\n"))
-            if(!file.exists(paste0("../output/Expression/out_genes/",gene,"/",cancer,".txt"))){
+            if(!file.exists(paste0(data.dir,"Expression/out_genes/",gene,"/",cancer,".txt"))){
               cat("File not present\n")
-              if(!dir.exists(paste0("../output/Expression/out_genes/",gene))){
+              if(!dir.exists(paste0(data.dir,"Expression/out_genes/",gene))){
                 system(paste0("mkdir ../output/Expression/out_genes/",gene))
                 cat("Made directory\n")
               }
@@ -136,11 +137,11 @@ shinyServer(
               cat("creating data\n")
               
             }
-            exp <- read.table(paste0("../output/Expression/out_genes/",gene,"/",cancer,".txt"),header=T,row.names=1,check.names=F) 
-            #exp <- read.table(paste0("../output/Expression/",cancer,".txt"),header=T,row.names=1,check.names=F) #Instead of importing entire expression matrix should import single gene.
+            exp <- read.table(paste0(data.dir,"Expression/out_genes/",gene,"/",cancer,".txt"),header=T,row.names=1,check.names=F) 
+            #exp <- read.table(paste0(data.dir,"Expression/",cancer,".txt"),header=T,row.names=1,check.names=F) #Instead of importing entire expression matrix should import single gene.
             cat("going to read clinical data\n")
             incProgress(1/n, detail = "Getting clinical data")
-            clinical <- read.table(paste("../output/Clinical/",cancer,".txt",sep=""),header=T,row.names=1,sep="\t")
+            clinical <- read.table(paste(data.dir,"Clinical/",cancer,".txt",sep=""),header=T,row.names=1,sep="\t")
             
             
             #Process Clinical
@@ -291,9 +292,9 @@ shinyServer(
           n = length(cancer.list) + 1
           for(i in cancer.list){
             #incProgress(1/n, detail = paste0("collating data ", count, " of ", length(cancer.list)))
-            if(!file.exists(paste0("../output/Expression/out_genes/",gene,"/",i,".txt"))){
+            if(!file.exists(paste0(data.dir,"Expression/out_genes/",gene,"/",i,".txt"))){
               cat("File not present\n")
-              if(!dir.exists(paste0("../output/Expression/out_genes/",gene))){
+              if(!dir.exists(paste0(data.dir,"Expression/out_genes/",gene))){
                 system(paste0("mkdir ../output/Expression/out_genes/",gene))
                 cat("Made directory\n")
               }
@@ -302,7 +303,7 @@ shinyServer(
               cat("creating data\n")
               
             }
-            temp <- as.data.frame(t(read.table(paste("../output/Expression/out_genes/",gene,"/",i,".txt",sep=""),header=T,sep="\t",row.names=1)))
+            temp <- as.data.frame(t(read.table(paste(data.dir,"Expression/out_genes/",gene,"/",i,".txt",sep=""),header=T,sep="\t",row.names=1)))
             temp$type <- as.factor(ifelse(grepl("11",row.names(temp)),"Normal","Tumor"))
             temp$cancer <- rep(i,nrow(temp))
             if(ncol(temp)<3 | length(unique(temp$type))<2){
@@ -352,9 +353,9 @@ shinyServer(
           #incProgress(1/n, detail = "Getting expression data")
           #Import Expression and Clinical Data
           cat(paste0("going to read expression ",cancer,"\n"))
-          if(!file.exists(paste0("../output/Expression/out_genes/",gene,"/",cancer,".txt"))){
+          if(!file.exists(paste0(data.dir,"Expression/out_genes/",gene,"/",cancer,".txt"))){
             cat("File not present\n")
-            if(!dir.exists(paste0("../output/Expression/out_genes/",gene))){
+            if(!dir.exists(paste0(data.dir,"Expression/out_genes/",gene))){
               system(paste0("mkdir ../output/Expression/out_genes/",gene))
               cat("Made directory\n")
             }
@@ -363,11 +364,11 @@ shinyServer(
             cat("creating data\n")
             
           }
-          exp <- read.table(paste0("../output/Expression/out_genes/",gene,"/",cancer,".txt"),header=T,row.names=1,check.names=F) 
-          #exp <- read.table(paste0("../output/Expression/",cancer,".txt"),header=T,row.names=1,check.names=F) #Instead of importing entire expression matrix should import single gene.
+          exp <- read.table(paste0(data.dir,"Expression/out_genes/",gene,"/",cancer,".txt"),header=T,row.names=1,check.names=F) 
+          #exp <- read.table(paste0(data.dir,"Expression/",cancer,".txt"),header=T,row.names=1,check.names=F) #Instead of importing entire expression matrix should import single gene.
           cat("going to read clinical data\n")
           #incProgress(1/n, detail = "Getting clinical data")
-          clinical <- read.table(paste("../output/Clinical/",cancer,".txt",sep=""),header=T,row.names=1,sep="\t")
+          clinical <- read.table(paste(data.dir,"Clinical/",cancer,".txt",sep=""),header=T,row.names=1,sep="\t")
           
           
           #Process Clinical

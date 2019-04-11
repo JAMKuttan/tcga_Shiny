@@ -6,15 +6,15 @@ shinyUI(
         selectInput("operation","Select Plot Type",choices = c("Boxplot","Survival")),
         conditionalPanel(condition = "input.operation=='Boxplot'",
                          selectInput("cancerType","Select one or more cancer types",
-                                     choices = substr(list.files("../output/Expression/",pattern=".txt"),1,
-                                                      nchar(list.files("../output/Expression/",pattern=".txt"))-4),
+                                     choices = substr(list.files(data.dir,"Expression/",pattern=".txt"),1,
+                                                      nchar(list.files(data.dir,"Expression/",pattern=".txt"))-4),
                                      multiple = TRUE),
                          textInput("gene","Please input one gene of interest",placeholder = "Gene name ie TRIM21")
         ),
         conditionalPanel(condition="input.operation=='Survival'",
                          selectInput("cancerType2","Select a cancer type",
-                                     choices = substr(list.files("../output/Expression/",pattern=".txt"),1,
-                                                      nchar(list.files("../output/Expression/",pattern=".txt"))-4)),
+                                     choices = substr(list.files(data.dir,"Expression/",pattern=".txt"),1,
+                                                      nchar(list.files(data.dir,"Expression/",pattern=".txt"))-4)),
                          textInput("gene2","Please input one gene of interest",placeholder = "Gene name ie BRCA1"),
                          selectInput("operation2","Select automatic or manual cutoff", choices = c("Automatic", "Manual"))
                          
