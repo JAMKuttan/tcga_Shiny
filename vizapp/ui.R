@@ -14,7 +14,7 @@ shinyUI(
         conditionalPanel(condition="input.operation=='Survival'",
                          selectInput("cancerType2","Select a cancer type",
                                      choices = substr(list.files(paste0(data.dir,"Expression/"),pattern=".txt"),1,
-                                                      nchar(list.files(paste0(data.dir,"Expression/)",pattern=".txt"))-4)),
+                                                      nchar(list.files(paste0(data.dir,"Expression/"),pattern=".txt"))-4)),
                          textInput("gene2","Please input one gene of interest",placeholder = "Gene name ie BRCA1"),
                          selectInput("operation2","Select automatic or manual cutoff", choices = c("Automatic", "Manual"))
                          
