@@ -6,9 +6,28 @@ before_script:
 
 stages:
   - astrocyte
+  - simple
 
 astrocyte_check:
   stage: astrocyte
   script:
   - astrocyte_cli check ../tcga_shiny
+  artifacts:
+    expire_in: 2 days
+  retry:
+    max: 2
+    when:
+      - always
 
+simple:
+  stage: simple
+  except:
+    - tags
+  script:
+    - nextflow run workflow/main.nf
+  artifacts:
+    expire_in: 2 days
+  retry:
+    max: 2
+    when:
+      - always
