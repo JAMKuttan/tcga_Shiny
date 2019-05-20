@@ -1,1 +1,1 @@
-data.dir <- Sys.getenv('outputDir')
+data.dir <- paste0(Sys.getenv('outputDir'),"/")
