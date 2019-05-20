@@ -8,7 +8,7 @@ params.run = "TRUE"
 
 process copy {
 
-  publishDir "$baseDir/output/", mode: 'copy'
+  publishDir "$baseDir/output/", mode: 'symlink'
 
   input:
 
@@ -22,6 +22,6 @@ process copy {
   script:
 
   """
-  cp -r /project/shared/bicf_workflow_ref/tcga_shiny_app_data/* .
+  ln -s /project/shared/bicf_workflow_ref/tcga_shiny_app_data/* .
   """
 }
