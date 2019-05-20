@@ -2,7 +2,7 @@
 
 ## Shiny app for simple expression-based survival analysis and normal-to-tumor gene expression comparisons
 
-Project abbreviation   |  Project Name    
+Project abbreviation   |  Project name    
  ------------- | ------------  
 ACC            | Adrenocortical Carcinoma
 BLCA           | Bladder Urothelial Carcinoma
