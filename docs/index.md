@@ -1,6 +1,6 @@
 # Astrocyte TCGA Shiny Workflow Package   
 
-## Shiny app for analyzing TCGA data for frequently asked requests through the Help-Desk.   
+## Shiny app for simple expression-based survival analysis and normal-to-tumor gene expression comparisons
 
 Project name   |  Cancer type    
  ------------- | ------------  
