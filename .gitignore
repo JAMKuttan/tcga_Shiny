@@ -296,14 +296,17 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/r,perl,macos,linux,python,windows
 
 # nextflow analysis folders/files
-/test_data/*.fastq.gz
-/test_data/*.fastq
+/test_data/*
 /workflow/.nextflow/*
 /workflow/work/*
 /workflow/output/*
+/.nextflow/*
+/data/*
+/work/*
+/output/*
 pipeline_trace*.txt*
 .nextflow*.log*
-report.html*
+report*.html*
 timeline*.html*
 
 *~
