@@ -1,3 +1,7 @@
+|*master*|*develop*|
+|:-:|:-:|
+|[![Build Status](https://git.biohpc.swmed.edu/BICF/Astrocyte/tcga_shiny/badges/master/build.svg)](https://git.biohpc.swmed.edu/BICF/Astrocyte/tcga_shiny/commits/master)|[![Build Status](https://git.biohpc.swmed.edu/BICF/Astrocyte/tcga_shiny/badges/develop/build.svg)](https://git.biohpc.swmed.edu/BICF/Astrocyte/tcga_shiny/commits/develop)|
+
 Author: Spencer Barnes <Spencer.Barnes@UTSouthwestern.edu>   
 Date: January 25, 2019    
 Description: Shiny app for analyzing TCGA data for frequently asked requests through the Help-Desk.    
