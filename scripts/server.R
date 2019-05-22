@@ -506,7 +506,7 @@ shinyServer(
       filename = function() { paste0("plot", '.pdf') },
       content = function(file) {
         #ggsave(file = file, plot = plotInput(), device = "pdf")
-        pdf(file)
+        pdf(file, onefile=FALSE)
         plotInput()
         dev.off()
       }
