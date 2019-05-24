@@ -332,7 +332,8 @@ shinyServer(
               theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
                     panel.background = element_blank(), axis.line = element_line(colour = "black"))
             #cat("printing",gene,"\n")
-            print(p + facet_wrap( ~ cancer, scales="free") + ggtitle(gene) + theme(plot.title = element_text(hjust = 0.5)))
+            p <- p + facet_wrap( ~ cancer, scales="free") + ggtitle(gene) + theme(plot.title = element_text(hjust = 0.5))
+            print(p)
             #incProgress(1/n, detail = paste0("printing plot!"))
           }
         }
@@ -507,11 +508,10 @@ shinyServer(
       content = function(file) {
         #ggsave(file = file, plot = plotInput(), device = "pdf")
         pdf(file, onefile=FALSE)
-        plotInput()
+        print(plotInput() + theme(legend.position = "none"))
         dev.off()
       }
     )
-    
     
   }
 )
