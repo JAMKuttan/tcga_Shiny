@@ -9,7 +9,7 @@
 # A unique identifier for the workflow package, text/underscores only
 name: 'tcga_shiny'
 # Who wrote this?
-author: 'Spencer Barnes, Gervaise H. Henry, Jeremy Mathews and Venkat Malladi'
+author: 'Spencer Barnes, Gervaise H. Henry, Jeremy Mathews, and Venkat Malladi'
 # A contact email address for questions
 email: 'bicf@utsouthwestern.edu'
 # A more informative title for the workflow package
