@@ -330,9 +330,9 @@ shinyServer(
             p <- ggplot(data = data, aes(x=type, y=value)) + geom_boxplot(aes(fill=type),outlier.size = 0.2,outlier.alpha=0.8) + scale_y_continuous(limits = c(0, 2000)) + 
               geom_text(data=data.frame(x=1.5,y=1800,labels=pval,cancer=unique(data$cancer)),aes(x,y,label=labels),size=3 , inherit.aes=FALSE) +
               theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-                    panel.background = element_blank(), axis.line = element_line(colour = "black"))
+                    panel.background = element_blank(), axis.line = element_line(colour = "black"), legend.position = "none")
             #cat("printing",gene,"\n")
-            print(p + facet_wrap( ~ cancer, scales="free") + ggtitle(gene) + theme(plot.title = element_text(hjust = 0.5)))
+            print(p + facet_wrap( ~ cancer, scales="free") + ggtitle(gene) + theme(plot.title = element_text(hjust = 0.5), legend.position = "none"))
             #incProgress(1/n, detail = paste0("printing plot!"))
           }
         }
