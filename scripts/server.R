@@ -105,7 +105,7 @@ shinyServer(
                 theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
                       panel.background = element_blank(), axis.line = element_line(colour = "black"), legend.position = "none")
               #cat("printing",gene,"\n")
-              print(p + facet_wrap( ~ cancer, scales="free") + ggtitle(gene) + theme(plot.title = element_text(hjust = 0.5)))
+              print(p + facet_wrap( ~ cancer, scales="free") + ggtitle(gene) + theme(plot.title = element_text(hjust = 0.5), legend.position = "none"))
               incProgress(1/n, detail = paste0("printing plot!"))
             }
           }
